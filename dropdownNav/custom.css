@@ -1,0 +1,155 @@
+body,
+nav,
+span,
+button,
+input,
+label,
+p,
+header,
+footer {
+    -webkit-transition: all .25s ease-out;
+    -o-transition: all .25s ease-out;
+    transition: all .25s ease-out;
+}
+
+* {
+    box-sizing: border-box;
+}
+
+/* 小屏幕下的导航栏，在大屏幕及中屏幕不显示 */
+#gn-menu {
+    display: none;
+    border-bottom: 1px solid #ddd;
+}
+
+/* 大屏幕一级导航栏css */
+.nav-index {
+    padding: 0.2rem 1rem;
+}
+
+.nav-index .navbar-brand {
+    padding-top: 0.1rem;
+    padding-bottom: 0.1rem;
+    color: rgba(0, 0, 0, 0.5);
+}
+
+/* 大屏幕二级导航栏css */
+.bg-custom {
+    background-color: rgba(119, 180, 145, 0.95);
+}
+
+.bg-custom>.navbar-brand {
+    padding-top: 1rem;
+    padding-bottom: 1rem;
+}
+
+.bg-custom .navbar-nav-scroll {
+    margin-left: auto;
+    padding-top: 1rem;
+    padding-bottom: 1rem;
+}
+
+.bg-custom .navbar-nav-scroll .nav-link {
+    padding-left: 1rem;
+    padding-right: 1rem;
+    font-size: 1.1rem;
+}
+
+.bg-custom .navbar-nav-scroll ul.navbar-nav li.nav-item:hover .sec-nav {
+    visibility: visible
+}
+
+.bg-custom .navbar-brand,
+.bg-custom .navbar-nav-scroll,
+.bg-custom .navbar-nav .nav-link {
+    color: white;
+    -webkit-transition: all .25s ease-out;
+    -o-transition: all .25s ease-out;
+    transition: all .25s ease-out;
+}
+
+
+.bg-custom .navbar-brand:hover,
+.bg-custom .navbar-brand:hover:visited,
+.bg-custom .navbar-nav .nav-link:hover,
+.bg-custom .navbar-nav .nav-link:active {
+    color: gainsboro;
+    box-shadow: inset 0 -2px 0 0 gainsboro;
+}
+
+/* 二级导航栏中二级下拉菜单导航css  */
+.sec-nav {
+    visibility: hidden;
+    border-left: 1px solid #ddd;
+    border-right: 1px solid #ddd;
+    box-shadow: inset 0 -1px 0 0 #e5e5e5;
+    /* 使二级导航不与导航栏重叠 */
+    margin-top: 24px;
+    background-color: rgba(119, 180, 145, 0.85);
+    position: absolute;
+    left: 0;
+    z-index: 3;
+    max-height: calc(100vh - 112px);
+    max-width: 100vw;
+    min-height: 25vh;
+    width: 100%;
+    overflow: hidden;
+    transition: opacity .1s linear .4s, visibility 0ms linear .41s;
+}
+
+.sec-nav ul.sec-nav-menu {
+    list-style: none;
+    display: block;
+    /*  取消ul默认的padding-inline-start  */
+    padding-inline-start: 0;
+    /* 使ul下显示的元素剧中 */
+    text-align: center;
+}
+
+.sec-nav ul.sec-nav-menu li>a {
+    display: block;
+    padding: 0.8rem;
+    color: white;
+    text-decoration: none;
+    -webkit-transition: color .25s ease-out;
+    -o-transition: color .25s ease-out;
+    transition: color .25s ease-out;
+    -webkit-transition: box-shadow .25s ease-out;
+    -o-transition: box-shadow .25s ease-out;
+    transition: box-shadow .25s ease-out;
+}
+
+.sec-nav .fake-box {
+    /* 尺寸自适应容器大小，假装是容器 */
+    position: absolute;
+    left: 0;
+    right: 0;
+    top: 0;
+    bottom: 0;
+    /* 在框的下面 */
+    z-index: -1;
+    -webkit-transition: background-color .25s ease-out;
+    -o-transition: background-color .25s ease-out;
+    transition: background-color .25s ease-out;
+}
+
+.sec-nav ul.sec-nav-menu li>a:hover {
+    color: gainsboro;
+    box-shadow: inset 0 -2px 0 0 gainsboro;
+}
+
+.sec-nav ul:hover+.fake-box {
+    background-color: rgba(119, 190, 145, 0.85);
+}
+
+
+@media all and (max-width:768px) {
+    #gn-menu {
+        display: block;
+    }
+
+    .nav-index,
+    .bg-custom {
+        display: none;
+    }
+}
